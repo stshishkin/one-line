@@ -2,11 +2,15 @@
 
 #collection useful conveyor with `find`
 
-# there are two folders with identical files. but in one of them rights were broken accidentally.
+#there are two folders with identical files. but in one of them rights were broken accidentally.
 cd ./one && find . -exec chmod --reference=../two/{} {} \;
 
 #find files and folders withour write permission for group and add this bit (yep, I know about chmod -R :)
 find . ! -perm -g+w -exec chmod g+w {} \;
+
+# recursive find
+#when you need to find differences between files in two directories and extract these changes to the third directory for analysis:
+mkdir -p ./diff && cd ./one && find . -type f -exec sh -c 'if [[ ! -e "$(dirname ./diff/$0)" ]]; then mkdir -p $(dirname ./diff/$0); fi; diff -y --suppress-common-lines $0 ./two/$0 > ./diff/$0' {} \;
 
 #in according our backup reglament there are such files must be provided:
 #everyday for the last 7 days

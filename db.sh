@@ -4,4 +4,4 @@ mysql -uroot -prootpassword -e'SELECT table_schema "database_name", sum( data_le
 
 # it's not a secret, that size of database not equal size of dump file.
 # how to calculate real size of SQL-dump without actually write on disk and check? (shows size in bytes)
-mysqldump -uroot -prootpassword database_name | gzip | zcat | wc -c
+mysqldump -uroot -prootpassword database_name | wc -c

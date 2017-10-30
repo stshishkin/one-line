@@ -25,3 +25,6 @@ find $DEST -maxdepth 1 -type f -name \*.dump.gz \( -atime 30 -o \( -atime +30 -a
 -o -atime 90 \)\ 
 -exec bash -c\ 
 'if [[ $(($(date "+%W" --date="$(stat -c%x $0)") % 2)) != 0 || "$(date "+%u" --date="$(stat -c%x $0)")" != 1 ]]; then rm $0; fi' {} \; 
+
+# You can also check the port listening for the sshd service using the netstat command as below:
+netstat -plant | grep sshd

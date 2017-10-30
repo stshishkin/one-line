@@ -39,8 +39,8 @@ Add your favorite or the most useful one line script in following files:
 
 Commit changes with a meaningful commit message like "Added script for calculating free space".
 ```shell
-$git add -A
-$git commit -m "Commit message here"` (include double quotes)
+$ git add -A
+$ git commit -m "Commit message here"` (include double quotes)
 ```
 
 #### Create a pull request 

@@ -23,6 +23,3 @@ function online (){
 
 #setup ppp-tunnel through ssh-session and route whole traffic from server through client host in one command
 pppd pty 'ssh -x -t -e none root@10.8.10.105 /usr/sbin/pppd passive noauth 9600 defaultroute' nodetach noauth 10.0.0.1:10.0.0.2
-
-#find ripe netname by IP
-curl -s "http://rest.db.ripe.net/search?source=ripe&query-string=87.240.182.224" | xmlstarlet sel -t -c 'string(//*[@name="netname"]/@value)'

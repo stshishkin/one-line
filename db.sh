@@ -9,3 +9,6 @@ mysqldump -uroot -prootpassword database_name | wc -c
 # how to export data from mysql table in csv by one command?
 # here is an answer)
 mysql -uuser -puserpass database -e"select * from some_table where some_field like '%some_value%' into outfile '/tmp/some_file.csv' fields terminated by ';' lines terminated by '\n';"
+
+# This will take backup of all the new files added to the folder_to_take_backup after level-0 dump is made. -1 is the dump-level [1 specifies incremental backup]
+dump -1uf backup_name folder_to_take_backup
